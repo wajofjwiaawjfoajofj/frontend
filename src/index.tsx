@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Add from './components/Add';
 import Task from './components/Task';
 import Complete from './components/Complete';
 import About from './components/About';
-import { Routes, Route, Router } from 'react-router-dom';
+import { Routes, Route,  BrowserRouter } from 'react-router-dom';
 import Footer from './components/Footer';
 
 
@@ -18,14 +17,20 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
   <div>
+    <div className='routerwrap'>
+    <BrowserRouter>
+    <main className='maincontent'>
     <h1>Tech archive</h1>
-    <div>
     <Routes>
       <Route path="/"  element={<Add/>}   />
       <Route path="/task" element={<Task/>} />
+      <Route path="/complete" element={<Complete/>} />
+      <Route path="/About" element={<About/>} />
     </Routes>
-    </div>
+    </main>
     <Footer/>
+    </BrowserRouter>
+    </div>
   </div>
   </React.StrictMode>
 );
